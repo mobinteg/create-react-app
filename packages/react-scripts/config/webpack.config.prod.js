@@ -16,8 +16,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
-var paths = require('./paths');
 var getClientEnvironment = require('./env');
+var paths = require('./paths');
+var config = require('./config');
 
 // @remove-on-eject-begin
 // `path` is not used after eject - see https://github.com/facebookincubator/create-react-app/issues/1174
@@ -157,7 +158,7 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: config.babelIncludes.concat(paths.appSrc),
         loader: 'babel-loader',
         // @remove-on-eject-begin
         options: {
