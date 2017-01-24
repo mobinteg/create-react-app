@@ -51,6 +51,7 @@ module.exports = {
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
+  config: resolveApp('config.js'),
   ownNodeModules: resolveApp('node_modules'),
   nodePaths: nodePaths
 };
@@ -71,13 +72,14 @@ module.exports = {
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
+  config: resolveApp('config.js'),
   // this is empty with npm3 but node resolution searches higher anyway:
   ownNodeModules: resolveOwn('../node_modules'),
   nodePaths: nodePaths
 };
 
 // config before publish: we're in ./packages/react-scripts/config/
-if (__dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1) {
+if (__dirname.indexOf(path.join('packages', 'react-scripts-mobinteg', 'config')) !== -1) {
   module.exports = {
     appBuild: resolveOwn('../../../build'),
     appPublic: resolveOwn('../template/public'),
@@ -88,6 +90,7 @@ if (__dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1) 
     yarnLockFile: resolveOwn('../template/yarn.lock'),
     testsSetup: resolveOwn('../template/src/setupTests.js'),
     appNodeModules: resolveOwn('../node_modules'),
+    config: resolveOwn('../../../config.js'),
     ownNodeModules: resolveOwn('../node_modules'),
     nodePaths: nodePaths
   };
